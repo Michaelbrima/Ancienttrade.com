@@ -1,0 +1,330 @@
+<!DOCTTYPE html>
+
+<html>
+ 
+<head> 
+
+<script src="script.js" defer></script> <!--defer allows for javascript to run after html is loaded-->
+
+<link type="text/css" rel="stylesheet" href="stylesheet.css">
+
+<title>Ancienttrade.com</title>
+
+</head>
+
+
+
+<body>
+
+<div id="header"> 
+
+<img src="AT-logo.jpg" alt="">
+
+<h1>Ancienttrade.com</h1>
+
+</div>
+<!--
+<div id="navbar"> 
+
+	<ul id="navigation"> 
+		<li><a class="current" href="index.html">Home</a></li>
+		<li><a href="indexHats.html">Hats and Headgear</a></li>
+		<li><a href="">T-shirts</a></li>
+		<li><a href="">Pants</a></li>
+		<li><a href="">Blankets and Bedsheets</a></li>
+	</ul>
+	
+</div>
+-->
+<ul class="tabs"> 
+
+	<li data-tab-target="#home" class="active tab">Home</li> <!--we put 
+	the 'active' alass on whichever tab is going to be active from the 
+	begining-->
+	<!--<li data-tab-target="#pricing" class="tab">Pricing</li>
+	<li data-tab-target="#about" class="tab">About</li>-->
+	<li data-tab-target="#hats" class="tab">Hats</li>
+	<li data-tab-target="#tshirts" class="tab">T-shirts</li>
+	<li data-tab-target="#pants" class="tab">Pants</li>
+	<li data-tab-target="#bandb" class="tab">Blankets and Bedsheets</li>
+
+</ul>
+
+<!--color of sidebar should be #6A2E35-->
+
+<br>
+
+<div class="filterbar"> 
+	<p>Order By:</p>
+	
+	<ul> 
+		<li><button>A to Z</button>
+		<li><button>Order of Entry</button>
+	</ul>
+
+</div>
+<!--
+<div class="main"> 
+
+<p>Clothing currently available:</p>
+
+</div>
+
+<!--
+<ul class="tabs"> 
+
+	<li data-tab-target="#home" class="active tab">Home</li> <!--we put 
+	the 'active' alass on whichever tab is going to be active from the 
+	begining-->
+<!--	<li data-tab-target="#pricing" class="tab">Pricing</li>
+	<li data-tab-target="#about" class="tab">About</li>
+	<li data-tab-target="#hats" class="tab">Hats</li>
+	<li data-tab-target="#tshirts" class="tab">T-shirts</li>
+	<li data-tab-target="#pants" class="tab">Pants</li>
+	<li data-tab-target="#bandb" class="tab">Blankets and Bedsheets</li>
+
+</ul>
+-->
+<div class="tab-content"> 
+
+	<div id="home" data-tab-content class="active"> <!--data attribute 'data-tab-target'-->
+	
+		<h1>Home</h1>
+		
+		<br>
+		
+		<p>Clothing currently available:</p>
+		
+		<br>
+		
+		<div id="hProductEntry">
+		
+		<h2>Product Entry</h2>
+		<p>Fill out this form and push the 'submit' button to add a new entry.</p>
+		<form action="https://formsubmit.co/Christianbrima10@gmail.com" method="POST">
+			<label for="productTitle" >Product Title:</label>
+			<input type="text" id="productTitle" name="productTitle" placeholder="Product title here"/>
+			
+			<br>
+			
+			<label for="productDescription">Description:</label>
+			<br>
+			<textarea id="productDescription" name="productDescription" placeholder="Please provide a short product description in this box." rows="2" cols="30"></textarea>
+			
+			<br>
+			
+			<label for="price">Price:</label>
+			<input type="number" placeholder="(USD)" min="0.00" max="1000.00" step="0.01" />
+			
+			<br>
+			
+			<label for="imageUpload">Please select an image to use:</label> 
+			<input type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)"/>
+			<br>
+			<img id="imagePreview" src="" alt="Image Preview" style="display:none; width:200px;"/>
+			
+			<br>
+			
+			<input type="submit" value="Submit">
+		</form>
+		
+		</div>
+	
+	</div>
+	
+	<div id="pricing" data-tab-content> 
+	
+		<h1>Pricing</h1>
+		<p>Some information on pricing.</p>
+	
+	</div>
+	
+	<div id="about" data-tab-content> 
+	
+		<h1>About</h1>
+		<p>Let me tell you about me.</p>
+	
+	</div>
+	
+	<div id="hats" data-tab-content> 
+	
+		<h1>Hats:</h1>
+		<p>Clothing currently available:</p>
+		
+		<br>
+		
+		<div id="hProductEntry">
+		
+		<h2>Product Entry</h2>
+		<p>Fill out this form and push the 'submit' button to add a new entry.</p>
+		<form action="https://formsubmit.co/Christianbrima10@gmail.com" method="POST">
+			<label for="productTitle" >Product Title:</label>
+			<input type="text" id="productTitle" name="productTitle" placeholder="Product title here"/>
+			
+			<br>
+			
+			<label for="productDescription">Description:</label>
+			<br>
+			<textarea id="productDescription" name="productDescription" placeholder="Please provide a short product description in this box." rows="2" cols="30"></textarea>
+			
+			<br>
+			
+			<label for="price">Price:</label>
+			<input type="number" placeholder="(USD)" min="0.00" max="1000.00" step="0.01" />
+			
+			<br>
+			
+			<label for="imageUpload">Please select an image to use:</label> 
+			<input type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)"/>
+			<br>
+			<img id="imagePreview" src="" alt="Image Preview" style="display:none; width:200px;"/>
+			
+			<br>
+			
+			<input type="submit" value="Submit">
+		</form>
+		
+		</div>
+	
+	</div>	
+
+
+	<div id="tshirts" data-tab-content> 
+	
+		<h1>T-Shirts:</h1>
+		<p>Clothing currently available:</p>
+		
+		<br>
+		
+		<div id="hProductEntry">
+		
+		<h2>Product Entry</h2>
+		<p>Fill out this form and push the 'submit' button to add a new entry.</p>
+		<form action="https://formsubmit.co/Christianbrima10@gmail.com" method="POST">
+			<label for="productTitle" >Product Title:</label>
+			<input type="text" id="productTitle" name="productTitle" placeholder="Product title here"/>
+			
+			<br>
+			
+			<label for="productDescription">Description:</label>
+			<br>
+			<textarea id="productDescription" name="productDescription" placeholder="Please provide a short product description in this box." rows="2" cols="30"></textarea>
+			
+			<br>
+			
+			<label for="price">Price:</label>
+			<input type="number" placeholder="(USD)" min="0.00" max="1000.00" step="0.01" />
+			
+			<br>
+			
+			<label for="imageUpload">Please select an image to use:</label> 
+			<input type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)"/>
+			<br>
+			<img id="imagePreview" src="" alt="Image Preview" style="display:none; width:200px;"/>
+			
+			<br>
+			
+			<input type="submit" value="Submit">
+		</form>
+		
+		</div>
+	
+	</div>
+
+	<div id="pants" data-tab-content> 
+	
+		<h1>Pants:</h1>
+		<p>Clothing currently available:</p>
+		
+		<br>
+		
+		<div id="hProductEntry">
+		
+		<h2>Product Entry</h2>
+		<p>Fill out this form and push the 'submit' button to add a new entry.</p>
+		<form action="https://formsubmit.co/Christianbrima10@gmail.com" method="POST">
+			<label for="productTitle" >Product Title:</label>
+			<input type="text" id="productTitle" name="productTitle" placeholder="Product title here"/>
+			
+			<br>
+			
+			<label for="productDescription">Description:</label>
+			<br>
+			<textarea id="productDescription" name="productDescription" placeholder="Please provide a short product description in this box." rows="2" cols="30"></textarea>
+			
+			<br>
+			
+			<label for="price">Price:</label>
+			<input type="number" placeholder="(USD)" min="0.00" max="1000.00" step="0.01" />
+			
+			<br>
+			
+			<label for="imageUpload">Please select an image to use:</label> 
+			<input type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)"/>
+			<br>
+			<img id="imagePreview" src="" alt="Image Preview" style="display:none; width:200px;"/>
+			
+			<br>
+			
+			<input type="submit" value="Submit">
+		</form>
+		
+		</div>
+	
+	</div>
+
+	<div id="bandb" data-tab-content> 
+	
+		<h1>Blankets and Bedsheets:</h1>
+		<p>Clothing currently available:</p>
+		
+		<br>
+		
+		<div id="hProductEntry">
+		
+		<h2>Product Entry</h2>
+		<p>Fill out this form and push the 'submit' button to add a new entry.</p>
+		<form action="https://formsubmit.co/Christianbrima10@gmail.com" method="POST">
+			<label for="productTitle" >Product Title:</label>
+			<input type="text" id="productTitle" name="productTitle" placeholder="Product title here"/>
+			
+			<br>
+			
+			<label for="productDescription">Description:</label>
+			<br>
+			<textarea id="productDescription" name="productDescription" placeholder="Please provide a short product description in this box." rows="2" cols="30"></textarea>
+			
+			<br>
+			
+			<label for="price">Price:</label>
+			<input type="number" placeholder="(USD)" min="0.00" max="1000.00" step="0.01" />
+			
+			<br>
+			
+			<label for="imageUpload">Please select an image to use:</label> 
+			<input type="file" id="imageUpload" accept="image/*" onchange="previewImage(event)"/>
+			<br>
+			<img id="imagePreview" src="" alt="Image Preview" style="display:none; width:200px;"/>
+			
+			<br>
+			
+			<input type="submit" value="Submit">
+		</form>
+		
+		</div>
+	
+	</div>
+
+
+
+</div>
+
+<div id="footer"> 
+
+2024 Historyden.com
+
+</div>
+
+</body>
+
+</html>
