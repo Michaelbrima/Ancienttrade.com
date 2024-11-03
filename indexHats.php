@@ -1,49 +1,12 @@
-<!DOCTTYPE html>
+<!DOCTYPE html>
+<html lang="en">
 
-<html>
- 
-<head> 
+<head>
+<script type="text/javascript" src="script.js"></script>
+<link rel="stylesheet" href="stylesheet.css">
+</head> 
 
-
-
-<script src="script.js" defer></script> <!--defer allows for javascript to run after html is loaded-->
-
-<link type="text/css" rel="stylesheet" href="stylesheet.css">
-
-<title>Ancienttrade.com</title>
-
-<!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.min.css">-->
-
-
-
-</head>
-
-
-
-<body>
-
-<?php
-
-//require(" index.php ");
-
-$host = "localhost";
-$username = "tester99";
-$password = "tester99";
-$dbname = "at_db";
-
-//Create connection
-$conn = new mysqli($host, $username, $password, $dbname);
-
-//Check connection
-
-if($conn === false) {
-	die("Error: Connection failed. "
-	. mysqli_connect_error());
-}
-
-?>
-
-
+<body> 
 <div id="header"> 
 
 <img src="AT-logo.jpg" alt="">
@@ -51,19 +14,7 @@ if($conn === false) {
 <h1>Ancienttrade.com</h1>
 
 </div>
-<!--
-<div id="navbar"> 
 
-	<ul id="navigation"> 
-		<li><a class="current" href="index.html">Home</a></li>
-		<li><a href="indexHats.html">Hats and Headgear</a></li>
-		<li><a href="">T-shirts</a></li>
-		<li><a href="">Pants</a></li>
-		<li><a href="">Blankets and Bedsheets</a></li>
-	</ul>
-	
-</div>
--->
 <ul class="tabs"> 
 
 	<li data-tab-target="#home" class="active tab">Home</li> <!--we put 
@@ -78,8 +29,6 @@ if($conn === false) {
 
 </ul>
 
-<!--color of sidebar should be #6A2E35-->
-
 <br>
 
 <div class="filterbar"> 
@@ -91,28 +40,7 @@ if($conn === false) {
 	</ul>
 
 </div>
-<!--
-<div class="main"> 
 
-<p>Clothing currently available:</p>
-
-</div>
-
-<!--
-<ul class="tabs"> 
-
-	<li data-tab-target="#home" class="active tab">Home</li> <!--we put 
-	the 'active' alass on whichever tab is going to be active from the 
-	begining-->
-<!--	<li data-tab-target="#pricing" class="tab">Pricing</li>
-	<li data-tab-target="#about" class="tab">About</li>
-	<li data-tab-target="#hats" class="tab">Hats</li>
-	<li data-tab-target="#tshirts" class="tab">T-shirts</li>
-	<li data-tab-target="#pants" class="tab">Pants</li>
-	<li data-tab-target="#bandb" class="tab">Blankets and Bedsheets</li>
-
-</ul>
--->
 <div class="tab-content"> 
 
 	<div id="home" data-tab-content class="active"> <!--data attribute 'data-tab-target'-->
@@ -207,12 +135,71 @@ if($conn === false) {
 		</form>
 		
 		</div>
-		
-		<div id="products">
 		<h1>Hats:</h1>
-		<p>Clothing currently available:  </p>
-		
+		<p>Clothing currently available:
+		<?php 
+$username = "tester99"; 
+$password = "tester99"; 
+$database = "at_db"; 
+$mysqli = new mysqli("localhost", $username, $password, $database); 
+$query = "SELECT * FROM hats";
 
+
+echo '<table border="0" cellspacing="2" cellpadding="2"> 
+      <tr> 
+          <td> <font face="Arial">Value1</font> </td> 
+          <td> <font face="Arial">Value2</font> </td> 
+          <td> <font face="Arial">Value3</font> </td> 
+          <td> <font face="Arial">Value4</font> </td> 
+          <td> <font face="Arial">Value5</font> </td> 
+      </tr>';
+
+if ($result = $mysqli->query($query)) {
+    while ($row = $result->fetch_assoc()) {
+        $field1name = $row["col1"];
+        $field2name = $row["col2"];
+        $field3name = $row["col3"];
+        $field4name = $row["col4"];
+        $field5name = $row["col5"]; 
+
+        echo '<tr> 
+                  <td>'.$field1name.'</td> 
+                  <td>'.$field2name.'</td> 
+                  <td>'.$field3name.'</td> 
+                  <td>'.$field4name.'</td> 
+                  <td>'.$field5name.'</td> 
+              </tr>';
+    }
+    $result->free();
+} 
+?>
+		<?php 
+		$host = "localhost";
+		$username = "tester99";
+		$password = "tester99";
+		$database = "at_db";
+		
+		$mysqli = new mysqli($host, $username, $password, $database);
+		$query = "SELECT * FROM hats";
+		
+		//echo '<table border="0" cellspacing="2" cellpadding="2">
+		//<tr>
+		//	<td> <font face="Arial">Title</font> </td>
+		//	<td> <font face="Arial">Description</font> </td>
+		//	<td> <font face="Arial">Price</font> </td>
+		//	<td> <font face="Arial">Image</font> </td>
+		//</tr>';
+		
+		//if ($result = mysqli->query($query)) {
+		if ($result ->num_rows >0) {
+			while ($row = $result->fetch_assoc()){
+			echo '<tr><td>'. $row["id"] . '</td><td>'. $row["Title"] .'</td><td>'. $row["Description"] .'</td><td>'. $row["Price"] .'</td><td>'. $row["Image"] .'</td></tr>';
+			}
+			
+			//echo "</table>";
+			$result->free();
+		}
+		?>
 		
 		<?php 
 		$conn = mysqli_connect("localhost", "tester99", "tester99", "at_db");
@@ -220,7 +207,7 @@ if($conn === false) {
 		$data = $result->fetch_all(MYSQLI_ASSOC);
 		?>
 		
-		<table border="1" cellspacing="2" cellpadding="10">
+		<table border="1">
 		<tr>
 			<th>id</th>
 			<th>Title</th>
@@ -239,15 +226,83 @@ if($conn === false) {
 		<?php endforeach ?>
 		</table>
 		
+		<?php
+$host    = "localhost";
+$user    = "tester99";
+$pass    = "tester99";
+$db_name = "at_db";
 
+//create connection
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+$connection = mysqli_connect($host, $user, $pass, $db_name);
 
+//get results from database
+$result = mysqli_query($connection, "SELECT * FROM hats");
 
+//showing property
+echo '<table class="data-table">
+        <tr class="data-heading">';  //initialize table tag
+while ($property = mysqli_fetch_field($result)) {
+    echo '<td>' . htmlspecialchars($property->name) . '</td>';  //get field name for header
+}
+echo '</tr>'; //end tr tag
+
+//showing all data
+while ($row = mysqli_fetch_row($result)) {
+    echo '<tr>';
+    foreach ($row as $item) {
+        echo '<td>' . htmlspecialchars($item) . '</td>'; //get items 
+    }
+    echo '</tr>';
+}
+echo "</table>";
+
+?>
+
+<?php
+
+	$conn = mysqli_connect("localhost", "tester99", "tester99", "at_db");
+	$result = mysqli_query($conn, "SELECT * FROM hats");
 	
+	$query = "SELECT * FROM hats;";
+	$queryResult = $conn->query($query);
+	echo "<table>";
+	while ($queryRow = $queryResult->fetch_row()){
+		echo "<tr>";
+		foreach($queryRow as $value) {
+			echo "<td>".htmlspecialchars($value)."</td>";
+		}
+			echo "</tr>";
+	}
+	echo "</table>";
+	?>
 	
+	<?php
+	
+	$db = mysqli_connect("localhost","tester99","tester99","at_db"); 
+	
+		$records = mysqli_query($db,"select * from hats"); // fetch data from database 
+ 
+while($data = mysqli_fetch_array($records)) 
+{ 
+?> 
+	  <tr> 
+		<td><?php echo $data['id']; ?></td> 
+		<td><?php echo $data['title']; ?></td> 
+		<td><?php echo $data['description']; ?></td>
+		<td><?php echo $data['price']; ?></td>
+		<td><?php echo $data['image']; ?></td> 
+	  </tr>	 
+	<?php 
+	} 
+	?> 
+	</table> 
+	 
+	<?php mysqli_close($db); // Close connection ?> 
 		
+		</p>
 		
-	</div>	
-		
+		<br>
 		
 		
 	
@@ -256,7 +311,8 @@ if($conn === false) {
 
 	<div id="tshirts" data-tab-content> 
 	
-
+		<h1>T-Shirts:</h1>
+		<p>Clothing currently available:</p>
 		
 		<br>
 		
@@ -292,42 +348,13 @@ if($conn === false) {
 		</form>
 		
 		</div>
-		
-		<div id="products">
-			<h1>T-Shirts:</h1>
-		<p>Clothing currently available:</p>
-		
-				<?php 
-		$conn = mysqli_connect("localhost", "tester99", "tester99", "at_db");
-		$result = mysqli_query($conn, "SELECT * FROM tshirts");
-		$data = $result->fetch_all(MYSQLI_ASSOC);
-		?>
-		
-		<table border="1" cellspacing="2" cellpadding="10">
-		<tr>
-			<th>id</th>
-			<th>Title</th>
-			<th>Description</th>
-			<th>Price</th>
-			<th>Image</th>
-		</tr>
-		<?php foreach($data as $row): ?>
-		<tr>
-			<td><?= htmlspecialchars($row['id']) ?></td>
-			<td><?= htmlspecialchars($row['Title']) ?></td>
-			<td><?= htmlspecialchars($row['Description']) ?></td>
-			<td><?= htmlspecialchars($row['Price']) ?></td>
-			<td><?= htmlspecialchars($row['Image']) ?></td>
-		</tr>
-		<?php endforeach ?>
-		</table>
-		
-		</div>
+	
 	</div>
 
 	<div id="pants" data-tab-content> 
 	
-
+		<h1>Pants:</h1>
+		<p>Clothing currently available:</p>
 		
 		<br>
 		
@@ -363,42 +390,13 @@ if($conn === false) {
 		</form>
 		
 		</div>
-		
-		<div id="products">
-		<h1>Pants:</h1>
-		<p>Clothing currently available:</p>
-		
-				<?php 
-		$conn = mysqli_connect("localhost", "tester99", "tester99", "at_db");
-		$result = mysqli_query($conn, "SELECT * FROM pants");
-		$data = $result->fetch_all(MYSQLI_ASSOC);
-		?>
-		
-		<table border="1" cellspacing="2" cellpadding="10">
-		<tr>
-			<th>id</th>
-			<th>Title</th>
-			<th>Description</th>
-			<th>Price</th>
-			<th>Image</th>
-		</tr>
-		<?php foreach($data as $row): ?>
-		<tr>
-			<td><?= htmlspecialchars($row['id']) ?></td>
-			<td><?= htmlspecialchars($row['Title']) ?></td>
-			<td><?= htmlspecialchars($row['Description']) ?></td>
-			<td><?= htmlspecialchars($row['Price']) ?></td>
-			<td><?= htmlspecialchars($row['Image']) ?></td>
-		</tr>
-		<?php endforeach ?>
-		</table>
-		
-		</div>
+	
 	</div>
 
 	<div id="bandb" data-tab-content> 
 	
-
+		<h1>Blankets and Bedsheets:</h1>
+		<p>Clothing currently available:</p>
 		
 		<br>
 		
@@ -434,50 +432,80 @@ if($conn === false) {
 		</form>
 		
 		</div>
-		
-		<div id="products">
-		<h1>Blankets and Bedsheets:</h1>
-		<p>Clothing currently available:</p>
-		
-				<?php 
-		$conn = mysqli_connect("localhost", "tester99", "tester99", "at_db");
-		$result = mysqli_query($conn, "SELECT * FROM blanketsandbedsheets");
-		$data = $result->fetch_all(MYSQLI_ASSOC);
-		?>
-		
-		<table border="1" cellspacing="2" cellpadding="10">
-		<tr>
-			<th>id</th>
-			<th>Title</th>
-			<th>Description</th>
-			<th>Price</th>
-			<th>Image</th>
-		</tr>
-		<?php foreach($data as $row): ?>
-		<tr>
-			<td><?= htmlspecialchars($row['id']) ?></td>
-			<td><?= htmlspecialchars($row['Title']) ?></td>
-			<td><?= htmlspecialchars($row['Description']) ?></td>
-			<td><?= htmlspecialchars($row['Price']) ?></td>
-			<td><?= htmlspecialchars($row['Image']) ?></td>
-		</tr>
-		<?php endforeach ?>
-		</table>
-		
-		</div>
-		
+	
 	</div>
 
 
 
 </div>
 
-<div id="footer"> 
+<?php
 
- &copy; 2024 Ancienttrade.com
+$title = $_POST["title"];
+$description = $_POST["description"];
+$price = $_POST["price"];
+//$price = filter_input(INPUT_POST, "type", FILTER_VALIDATE_INT); //checks to verify whether a value is filled or not (null)
+$image = $_POST["image"];
 
-</div>
+
+//print_r($_POST); // prints out form data to php file on browser
+
+//var_dump($title, $description, $price, $image); //to see results in array form
+
+$host = "localhost";
+$dbname = "at_db";
+$username = "tester99";
+$password = "tester99";
+
+$conn = mysqli_connect(hostname: $host, 
+				username: $username, 
+				password: $password, 
+				database: $dbname);
+				
+if (mysqli_connect_errno()){ //'mysqli_connect_errno' checks to see if there
+// is an error with connecting to the mysql database (if no error, it 
+//returns 0)
+	die("Connection error " . mysqli_connect_error());// 'mysqli_connect_error
+// gives message of what the error of the attempt to connect to the mysql database was	
+}
+
+//else:
+
+//echo "Connection successful"; //Writes out "Connection successful to php file in browser.
+
+
+$sql = "INSERT INTO hats (Title, Description, Price, Image)
+	VALUES (?, ?, ?, ?)"; //we shouldnt put dollar sign values here and use 
+//	a prepared statement instead in order to prevent sql injection (or an 
+//  attacker inserting sql code by inserting single quote characters in the form data
+// Connecting values to the placeholders in the 'sql' string is known as 
+// binding
+
+$stmt =mysqli_stmt_init($conn); //we pass the connection into 
+//'mysqli_stmt_init' as an arguement in order to create a prepared statement
+// object
+
+//mysqli_stmt_prepare($stmt, $sql) 
+
+if ( ! mysqli_stmt_prepare($stmt, $sql)) { //returns a boolean success value that basicallystates whether the information entered into the form was saved successfully
+	die(mysqli_error($conn));
+}
+
+
+mysqli_stmt_bind_param($stmt, "sssb",
+						$title,
+						$description,
+						$price,
+						$image);
+						
+mysqli_stmt_execute($stmt);
+
+echo "The record has been saved.";
+
+
+?>
 
 </body>
 
 </html>
+

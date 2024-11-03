@@ -123,6 +123,13 @@ will not display*/
 	border:#6a2E35 1px solid;
 }
 
+#products {
+	margin-left:0px;
+	margin-right:320px;
+	background-color:#fff;
+	border:#6a2E35 1px solid;
+}
+
 .filterbar{
 	background-color:#fff;
 	margin-left:10px;
