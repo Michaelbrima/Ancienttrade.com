@@ -11,10 +11,10 @@ $image = $_POST["image"];
 
 //var_dump($title, $description, $price, $image); //to see results in array form
 
-$host = "localhost";
-$dbname = "at_db";
-$username = "tester99";
-$password = "tester99";
+$host = "sql5.freesqldatabase.com";
+$dbname = "sql5742492";
+$username = "sql5727000";
+$password = "JwNK88RJEq";
 
 $conn = mysqli_connect(hostname: $host, 
 				username: $username, 
