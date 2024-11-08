@@ -65,7 +65,7 @@ will not display*/
 }
 
 .active[data-tab-content] { /*if you have an active tab, make it visible*/
-	display: block;
+	display: initial;
 }
 
 .tabs {
@@ -110,24 +110,32 @@ will not display*/
 	margin-right: 20px;
 }
 
+#hats{
+	display: inline;
+}
+
 #hProductEntry{
 	background-color:#fff;
-	margin-left:0px;
+	margin-left:10px;
 	margin-right:10px;
 	margin-top:0px;
 	margin-bottom:10px;
 	width:260px;
 	padding:20px;
 	border-radius:5px;
-	clear:left;
+	float:left;
 	border:#6a2E35 1px solid;
 }
 
 #products {
-	margin-left:0px;
-	margin-right:320px;
+	margin-left:320px;
+	margin-right:10px;
+	margin-top:0px;
+	/*width:100%;*/
 	background-color:#fff;
 	border:#6a2E35 1px solid;
+	border-radius:5px;
+	padding: 10px;
 }
 
 .filterbar{
@@ -171,3 +179,56 @@ will not display*/
 	color:#fff;
 	font-family: "Goudy Old Style", "Garamond", "Big Caslon", "Times New Roman";
 }
+
+.newTabs {
+	display: flex; /*allows us to use (for tabs at least) labels on the top 
+	and content on the bottom*/
+	flex-wrap: wrap; /*without this, the content sections would be kinliune 
+	with the tabs, but with it, it keeps content on bottom and tabs on top*/ 
+	/*max-width: 1000px;*/
+	font-family: sans-serif;
+	/*background-color:lightgray;*/
+}
+
+.tabs__label{
+	padding:10px 16px; /*padding of 10px on top and bottom and 16px left and right*/
+	cursor:pointer;
+	background-color: #fff;
+	padding: .2em 1em;
+	color:#6a2E35;
+	/*background-color:#FCF6BD;*/
+	margin:2px;
+	/*margin-left:50%;
+	margin-right:50%;*/
+	justify-content:center;
+	display:flex;
+}
+
+.tabs__radio{
+	display:none; /*hides our input fields with the radio*/
+}
+
+.tabs__content{ /*groups the 'tab__content' sections together while keeping 
+the label sections are kept up top thus grouping both levels of objects 
+together*/
+	order:1;
+	width:100%; /*puts the sections of this class below the labels*/
+	/*border-bottom:3px solid #dddddd;*/
+	/*max-width: 960px;*/
+	line-height:1.5;
+	font-size: 0.9em;
+	display: none; /*keeps our content sections hidden*/
+}
+
+.tabs__radio:checked+.tabs__label{ /*get me my checked radio tab, then get me the very next label (essentially the one associated with it*/
+	font-weight:bold;
+	color:#6a2E35;
+	border-bottom: 2px solid purple;
+	background-color:pink;
+}
+
+.tabs__radio:checked+.tabs__label+.tabs__content{ /*the very next content section associated with the checked tab*/
+display:initial; /*with this instead of 'display:block', the element 
+maintains its original display type of visible*/
+}
+	
