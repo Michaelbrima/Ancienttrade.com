@@ -85,10 +85,10 @@
 			$image = $_POST["image"];
 			//print_r($_POST); // prints out form data to php file on browser
 			//var_dump($title, $description, $price, $image); //to see results in array form
-			$host = "localhost";
-			$dbname = "at_db";
-			$username = "tester99";
-			$password = "tester99";
+			$host = "sql5.freesqldatabase.com";
+			$dbname = "sql5742492";
+			$username = "sql5742492";
+			$password = "mfuTDlqvg4";
 			$conn = mysqli_connect(hostname: $host, 
 							username: $username, 
 							password: $password, 
@@ -147,7 +147,7 @@
 
 			
 			<?php 
-			$conn = mysqli_connect("localhost", "tester99", "tester99", "at_db");
+			$conn = mysqli_connect("sql5.freesqldatabase.com", "sql5742492", "mfuTDlqvg4", "sql5742492");
 			$result = mysqli_query($conn, "SELECT * FROM hats");
 			$data = $result->fetch_all(MYSQLI_ASSOC);
 			?>
@@ -218,7 +218,7 @@
 
 			
 			<?php 
-			$conn = mysqli_connect("localhost", "tester99", "tester99", "at_db");
+			$conn = mysqli_connect("sql5.freesqldatabase.com", "sql5742492", "mfuTDlqvg4", "sql5742492");
 			$result = mysqli_query($conn, "SELECT * FROM tshirts");
 			$data = $result->fetch_all(MYSQLI_ASSOC);
 			?>
@@ -284,7 +284,7 @@
 
 			
 			<?php 
-			$conn = mysqli_connect("localhost", "tester99", "tester99", "at_db");
+			$conn = mysqli_connect("sql5.freesqldatabase.com", "sql5742492", "mfuTDlqvg4", "sql5742492");
 			$result = mysqli_query($conn, "SELECT * FROM pants");
 			$data = $result->fetch_all(MYSQLI_ASSOC);
 			?>
@@ -350,7 +350,7 @@
 
 			
 			<?php 
-			$conn = mysqli_connect("localhost", "tester99", "tester99", "at_db");
+			$conn = mysqli_connect("sql5.freesqldatabase.com", "sql5742492", "mfuTDlqvg4", "sql5742492");
 			$result = mysqli_query($conn, "SELECT * FROM blanketsandbedsheets");
 			$data = $result->fetch_all(MYSQLI_ASSOC);
 			?>
