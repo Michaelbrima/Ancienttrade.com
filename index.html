@@ -189,15 +189,201 @@
 
 	<input type="radio" class="tabs__radio" name="tabs-example" id="tab4"> <!--'checked' attribute means that this radio option will always be the foirst one viewed or rendered-->
 	<label for="tab4" class="tabs__label">T-Shirts</label>
-	<div class="tabs__content">Content for T-shirts</div>
+	<div class="tabs__content">
+	
+			<div id="hProductEntry">
+		
+			<h2>Product Entry</h2>
+			<p>Fill out this form and push the 'submit' button to add a new entry.</p>
+			<form method="POST">
+				<label for="title" >Product Title:</label>
+				<input type="text" id="title" name="title" placeholder="Product title here"/>
+				<br>
+				<label for="description">Description:</label>
+				<br>
+				<textarea id="description" name="description" placeholder="Please provide a short product description in this box." rows="2" cols="30"></textarea>
+				<br>
+				<label for="price">Price:</label>
+				<input type="int"  placeholder="(USD)" name="price" min="0.00" max="1000.00" step="0.01" />
+				<br>
+				<label for="image">Please select an image to use:</label> 
+				<input type="file" id="image" name="image" accept="image/*" onchange="previewImage(event)"/>
+				<br>
+				<img id="imagePreview" src="" alt="Image Preview" style="display:none; width:200px;"/>
+				<br>
+				<input type="submit" value="Submit">
+			</form>
+			
+		
+		</div>
+	
+		
+		<div id="products">
+			<h1>T-Shirts:</h1>
+			<p>Clothing currently available:  </p>
+			
+
+			
+			<?php 
+			$conn = mysqli_connect("localhost", "tester99", "tester99", "at_db");
+			$result = mysqli_query($conn, "SELECT * FROM tshirts");
+			$data = $result->fetch_all(MYSQLI_ASSOC);
+			?>
+			
+			<table border="1" cellspacing="2" cellpadding="10" style="width:100%">
+			<tr>
+				<th>id</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Image</th>
+			</tr>
+			<?php foreach($data as $row): ?>
+			<tr>
+				<td><?= htmlspecialchars($row['id']) ?></td>
+				<td><?= htmlspecialchars($row['Title']) ?></td>
+				<td><?= htmlspecialchars($row['Description']) ?></td>
+				<td><?= htmlspecialchars($row['Price']) ?></td>
+				<td><?= htmlspecialchars($row['Image']) ?></td>
+			</tr>
+			<?php endforeach ?>
+			</table>
+		
+		</div>
+	
+	</div>
 
 	<input type="radio" class="tabs__radio" name="tabs-example" id="tab5"> <!--'checked' attribute means that this radio option will always be the foirst one viewed or rendered-->
 	<label for="tab5" class="tabs__label">Pants</label>
-	<div class="tabs__content">Content for Pants</div>
+	<div class="tabs__content">
+	
+				<div id="hProductEntry">
+		
+			<h2>Product Entry</h2>
+			<p>Fill out this form and push the 'submit' button to add a new entry.</p>
+			<form method="POST">
+				<label for="title" >Product Title:</label>
+				<input type="text" id="title" name="title" placeholder="Product title here"/>
+				<br>
+				<label for="description">Description:</label>
+				<br>
+				<textarea id="description" name="description" placeholder="Please provide a short product description in this box." rows="2" cols="30"></textarea>
+				<br>
+				<label for="price">Price:</label>
+				<input type="int"  placeholder="(USD)" name="price" min="0.00" max="1000.00" step="0.01" />
+				<br>
+				<label for="image">Please select an image to use:</label> 
+				<input type="file" id="image" name="image" accept="image/*" onchange="previewImage(event)"/>
+				<br>
+				<img id="imagePreview" src="" alt="Image Preview" style="display:none; width:200px;"/>
+				<br>
+				<input type="submit" value="Submit">
+			</form>
+			
+		
+		</div>
+	
+		
+		<div id="products">
+			<h1>Pants:</h1>
+			<p>Clothing currently available:  </p>
+			
+
+			
+			<?php 
+			$conn = mysqli_connect("localhost", "tester99", "tester99", "at_db");
+			$result = mysqli_query($conn, "SELECT * FROM pants");
+			$data = $result->fetch_all(MYSQLI_ASSOC);
+			?>
+			
+			<table border="1" cellspacing="2" cellpadding="10" style="width:100%">
+			<tr>
+				<th>id</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Image</th>
+			</tr>
+			<?php foreach($data as $row): ?>
+			<tr>
+				<td><?= htmlspecialchars($row['id']) ?></td>
+				<td><?= htmlspecialchars($row['Title']) ?></td>
+				<td><?= htmlspecialchars($row['Description']) ?></td>
+				<td><?= htmlspecialchars($row['Price']) ?></td>
+				<td><?= htmlspecialchars($row['Image']) ?></td>
+			</tr>
+			<?php endforeach ?>
+			</table>
+		
+		</div>
+	
+	</div>
 	
 	<input type="radio" class="tabs__radio" name="tabs-example" id="tab6"> <!--'checked' attribute means that this radio option will always be the foirst one viewed or rendered-->
 	<label for="tab6" class="tabs__label">Blankets and Bedsheets</label>
-	<div class="tabs__content">Content for Blankets and Bedsheets</div>
+	<div class="tabs__content">
+	
+				<div id="hProductEntry">
+		
+			<h2>Product Entry</h2>
+			<p>Fill out this form and push the 'submit' button to add a new entry.</p>
+			<form method="POST">
+				<label for="title" >Product Title:</label>
+				<input type="text" id="title" name="title" placeholder="Product title here"/>
+				<br>
+				<label for="description">Description:</label>
+				<br>
+				<textarea id="description" name="description" placeholder="Please provide a short product description in this box." rows="2" cols="30"></textarea>
+				<br>
+				<label for="price">Price:</label>
+				<input type="int"  placeholder="(USD)" name="price" min="0.00" max="1000.00" step="0.01" />
+				<br>
+				<label for="image">Please select an image to use:</label> 
+				<input type="file" id="image" name="image" accept="image/*" onchange="previewImage(event)"/>
+				<br>
+				<img id="imagePreview" src="" alt="Image Preview" style="display:none; width:200px;"/>
+				<br>
+				<input type="submit" value="Submit">
+			</form>
+			
+		
+		</div>
+	
+		
+		<div id="products">
+			<h1>Blankets and Bedsheets:</h1>
+			<p>Clothing currently available:  </p>
+			
+
+			
+			<?php 
+			$conn = mysqli_connect("localhost", "tester99", "tester99", "at_db");
+			$result = mysqli_query($conn, "SELECT * FROM blanketsandbedsheets");
+			$data = $result->fetch_all(MYSQLI_ASSOC);
+			?>
+			
+			<table border="1" cellspacing="2" cellpadding="10" style="width:100%">
+			<tr>
+				<th>id</th>
+				<th>Title</th>
+				<th>Description</th>
+				<th>Price</th>
+				<th>Image</th>
+			</tr>
+			<?php foreach($data as $row): ?>
+			<tr>
+				<td><?= htmlspecialchars($row['id']) ?></td>
+				<td><?= htmlspecialchars($row['Title']) ?></td>
+				<td><?= htmlspecialchars($row['Description']) ?></td>
+				<td><?= htmlspecialchars($row['Price']) ?></td>
+				<td><?= htmlspecialchars($row['Image']) ?></td>
+			</tr>
+			<?php endforeach ?>
+			</table>
+		
+		</div>
+	
+	</div>
 	
 </div>
 
