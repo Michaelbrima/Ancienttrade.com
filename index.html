@@ -48,14 +48,7 @@
 
 
 <div class="newTabs"> 
-	<!--<input type="radio" class="tabs__radio" name="tabs-example" id="tab1" checked>--> <!--'checked' attribute means that this radio option will always be the foirst one viewed or rendered-->
-	<!--<label for="tab1" class="tabs__label">Tab #1</label>--> 
-	<!--<div class="tabs__content">Content for Tab 1</div>--> 
-	<!--<br>--> 
-	<!--<input type="radio" class="tabs__radio" name="tabs-example" id="tab2">-->  <!--'checked' attribute means that this radio option will always be the foirst one viewed or rendered-->
-	<!--<label for="tab2" class="tabs__label">Tab #2</label>--> 
-	<!--<div class="tabs__content">Content for Tab 2</div>--> 
-	<!--<br>--> 
+
 	<input type="radio" class="tabs__radio" name="tabs-example" id="tab3"> <!--'checked' attribute means that this radio option will always be the foirst one viewed or rendered-->
 	<label for="tab3" class="tabs__label">Hats</label>
 	<div class="tabs__content">
@@ -64,7 +57,7 @@
 		
 			<h2>Product Entry</h2>
 			<p>Fill out this form and push the 'submit' button to add a new entry.</p>
-			<form action="indexHats.php" method="POST">
+			<form action="" method="POST">
 				<label for="title" >Product Title:</label>
 				<input type="text" id="title" name="title" placeholder="Product title here"/>
 				<br>
@@ -84,7 +77,7 @@
 			</form>
 			
 			<?php
-
+			if (isset($_POST['title']) && isset($_POST['description']) && isset($_POST['price']) && isset($_POST['image'])) {
 			$title = $_POST["title"];
 			$description = $_POST["description"];
 			$price = $_POST["price"];
@@ -140,7 +133,7 @@
 			mysqli_stmt_execute($stmt);
 
 			echo "The record has been saved.";
-
+		}
 
 			?>
 		
