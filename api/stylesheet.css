@@ -1,0 +1,233 @@
+body{
+	background-color:#FCF6BD;
+	margin:0px;
+	font-family: Verdana, Georgia, serif;
+	font-size: 14px;
+}
+
+#header{
+	background-color:#B399C8;
+	/*padding:0px;*/
+	padding:5px;
+	padding-left: 70px;
+	margin:10px;
+	height:90px;
+	border-radius: 5px;
+	font-size: 120%;
+	color:#fff;
+	font-family: "Goudy Old Style", "Garamond", "Big Caslon", "Times New Roman";
+}
+
+img{
+	max-width:100%;
+	max-height:100%;
+	float:left;
+}
+
+#navbar ul{
+	background-color: #fff;
+	margin: 10px;
+	list-style-type: none;
+	text-align: center;
+	padding: 5px;
+}
+
+#navbar ul li{
+	display: inline;
+}
+
+#navbar ul li a{
+	text-decoration: none;
+	font-family:Arial;
+	padding: .2em 1em;
+	color: #6a2E35;
+	background-color:#FCF6BD;
+}
+
+#navbar ul li a:hover{
+	color:#fff;
+	background-color:#6a2E35;
+}
+/*
+#navigation ul li a.current {
+	color:#6a2E35;
+	background-color:pink;
+}
+
+#navbar ul li a:active {
+  background-color: yellow;
+}
+*/
+
+[data-tab-content] { /*all tabs with the data attribute data-tab-content 
+will not display*/
+	display: none;
+}
+
+.active[data-tab-content] { /*if you have an active tab, make it visible*/
+	display: initial;
+}
+
+.tabs {
+	display: flex;
+	align-items:center;
+	justify-content: center;
+	list-style-type: none;
+	/*margin: 0px;
+	padding: 0px;*/
+	margin: 10px;
+	padding:5px;
+	background-color:#fff;
+	margin:auto;
+	width:100%;
+	/*border:#6a2E35 1px solid;*/
+}
+
+
+
+.tab{
+	cursor:pointer; /*for the pointing icon cursor whenever a user hovers 
+	over one of the tabs*/
+	/*padding:10px;*/
+	padding: .2em 1em;
+	color:#6a2E35;
+	background-color:#FCF6BD;
+	margin:2px;
+	
+}
+
+.tab.active {
+	background-color:pink;
+}
+
+.tab:hover{
+	color:#fff;
+	background-color:#6a2E35;
+}
+
+.tab-content {
+	margin-left: 10px;
+	margin-right: 20px;
+}
+
+#hats{
+	display: inline;
+}
+
+#hProductEntry{
+	background-color:#fff;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:0px;
+	margin-bottom:10px;
+	width:260px;
+	padding:20px;
+	border-radius:5px;
+	float:left;
+	border:#6a2E35 1px solid;
+}
+
+#products {
+	margin-left:320px;
+	margin-right:10px;
+	margin-top:0px;
+	/*width:100%;*/
+	background-color:#fff;
+	border:#6a2E35 1px solid;
+	padding: 10px;
+}
+
+.filterbar{
+	background-color:#fff;
+	margin-left:10px;
+	margin-right:10px;
+	margin-top:0px;
+	margin-bottom:10px;
+	width:260px;
+	padding:20px;
+	border-radius:5px;
+	float:left;
+	border:#6a2E35 1px solid;
+}
+
+.filterbar ul{
+	list-style-type: none;
+}
+
+.main{
+	background-color: #fff;
+	margin-left:320px;
+	margin-right:10px;
+	margin-top:10px;
+	margin-bottom:10px;
+	border-radius:5px;
+	font-size:110%;
+	padding:20px;
+}
+
+#footer{
+	background-color:#B399C8;
+	/*padding:0px;*/
+	text-align:center;
+	padding:5px;
+	padding-left: 70px;
+	margin:10px;
+	height:90px;
+	border-radius: 5px;
+	font-size: 120%;
+	color:#fff;
+	font-family: "Goudy Old Style", "Garamond", "Big Caslon", "Times New Roman";
+}
+
+.newTabs {
+	display: flex; /*allows us to use (for tabs at least) labels on the top 
+	and content on the bottom*/
+	flex-wrap: wrap; /*without this, the content sections would be kinliune 
+	with the tabs, but with it, it keeps content on bottom and tabs on top*/ 
+	/*max-width: 1000px;*/
+	font-family: sans-serif;
+	/*background-color:lightgray;*/
+}
+
+.tabs__label{
+	padding:10px 16px; /*padding of 10px on top and bottom and 16px left and right*/
+	cursor:pointer;
+	background-color: #fff;
+	padding: .2em 1em;
+	color:#6a2E35;
+	/*background-color:#FCF6BD;*/
+	margin:2px;
+	/*margin-left:50%;
+	margin-right:50%;*/
+	justify-content:center;
+	display:flex;
+}
+
+.tabs__radio{
+	display:none; /*hides our input fields with the radio*/
+}
+
+.tabs__content{ /*groups the 'tab__content' sections together while keeping 
+the label sections are kept up top thus grouping both levels of objects 
+together*/
+	order:1;
+	width:100%; /*puts the sections of this class below the labels*/
+	/*border-bottom:3px solid #dddddd;*/
+	/*max-width: 960px;*/
+	line-height:1.5;
+	font-size: 0.9em;
+	display: none; /*keeps our content sections hidden*/
+}
+
+.tabs__radio:checked+.tabs__label{ /*get me my checked radio tab, then get me the very next label (essentially the one associated with it*/
+	font-weight:bold;
+	color:#6a2E35;
+	border-bottom: 2px solid purple;
+	background-color:pink;
+}
+
+.tabs__radio:checked+.tabs__label+.tabs__content{ /*the very next content section associated with the checked tab*/
+display:initial; /*with this instead of 'display:block', the element 
+maintains its original display type of visible*/
+}
+	
