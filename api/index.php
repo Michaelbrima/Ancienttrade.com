@@ -36,3 +36,8 @@
 </body>
 
 </html>
+
+<?php
+
+	echo 'Hello world!';
+?>
